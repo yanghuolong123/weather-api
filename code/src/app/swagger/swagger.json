@@ -342,6 +342,31 @@
                     }
                 }
             }
+        },
+        "/weather/": {
+            "get": {
+                "tags": [
+                    "weather"
+                ],
+                "description": "get weather by date",
+                "operationId": "WeatherController.Get",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "date",
+                        "description": "The key for date",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{string} date format"
+                    },
+                    "403": {
+                        "description": ":date is  error"
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -407,6 +432,10 @@
         {
             "name": "user",
             "description": "Operations about Users\n"
+        },
+        {
+            "name": "weather",
+            "description": "operation about weather\n"
         }
     ]
 }

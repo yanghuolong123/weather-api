@@ -124,4 +124,22 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["app/controllers:WeatherController"] = append(beego.GlobalControllerRouter["app/controllers:WeatherController"],
+        beego.ControllerComments{
+            Method: "Get",
+            Router: `/`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
+    beego.GlobalControllerRouter["app/controllers:WeatherController"] = append(beego.GlobalControllerRouter["app/controllers:WeatherController"],
+        beego.ControllerComments{
+            Method: "Get",
+            Router: `/:date`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
 }

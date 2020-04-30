@@ -227,6 +227,22 @@ paths:
       responses:
         "200":
           description: '{string} test sucess'
+  /weather/:
+    get:
+      tags:
+      - weather
+      description: get weather by date
+      operationId: WeatherController.Get
+      parameters:
+      - in: path
+        name: date
+        description: The key for date
+        type: string
+      responses:
+        "200":
+          description: '{string} date format'
+        "403":
+          description: :date is  error
 definitions:
   models.Object:
     title: Object
@@ -271,3 +287,6 @@ tags:
 - name: user
   description: |
     Operations about Users
+- name: weather
+  description: |
+    operation about weather
