@@ -10,6 +10,8 @@ RUN apt-get install -y net-tools
 
 RUN apt-get install -y supervisor
 
+RUN tar -zxvf app.tar.gz
+
 ENTRYPOINT  ./start.sh
 
 EXPOSE 8080
