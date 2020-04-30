@@ -8,7 +8,7 @@ ADD app.tar.gz /work
 RUN apt-get update && apt-get install -y curl vim cron wget
 RUN apt-get install -y net-tools
 
-RUN sudo apt-get install supervisor
+RUN apt-get install supervisor
 
 ENTRYPOINT  bash
 

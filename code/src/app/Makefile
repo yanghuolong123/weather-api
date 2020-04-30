@@ -6,3 +6,4 @@ tar:
 	docker -o weather-1.0.tar weather1.0
 	tar -zcvf weather-1.0.tar.gz weather-1.0.tar
 clean:
+	rm app.tar.gz
