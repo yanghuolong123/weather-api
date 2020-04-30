@@ -11,6 +11,9 @@ RUN apt-get install -y net-tools
 
 RUN apt-get install -y supervisor
 
-ENTRYPOINT  ./start.sh
+RUN cp ./doc/app.conf /etc/supervisor/conf.d
+RUN touch /var/log/supervisor/app.log
+
+ENTRYPOINT supervisord -c /etc/supervisor/supervisord.conf && tail -f /var/log/supervisor/app.log 
 
 EXPOSE 8080
