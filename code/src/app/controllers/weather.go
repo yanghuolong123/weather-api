@@ -35,7 +35,8 @@ func (w *WeatherController) Get() {
 	weatherUrl := "https://www.toutiao.com/stream/widget/local_weather/data/?city="+city
 	res,err :=http.Get(weatherUrl)
 	if err != nil {
-		w.Data["json"] = "error"
+		w.Data["json"] = sendRes(400, "failed", nil)
+		w.ServeJSON()
 	}
 	defer res.Body.Close()
 	body,err := ioutil.ReadAll(res.Body)
@@ -50,6 +51,6 @@ func (w *WeatherController) Get() {
 	}
 
 	//fmt.Println(m)
-	w.Data["json"]= m
+	w.Data["json"]= sendRes(200, "ok", m)
 	w.ServeJSON()
 }
